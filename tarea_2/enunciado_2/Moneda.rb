@@ -170,12 +170,3 @@ class Bitcoin < Moneda
     (@valor / $dolar_bitcoin).round(4).dolares
   end
 end
-
-dolar = Dolar.new(10.0)
-yen = Yen.new(1468.2) # 10.0 * $dolar_yen
-euro = Euro.new(9.1) # 10.0 / $dolar_euro
-bolivar = Bolivar.new(37.0) # 10.0 / $dolar_bolivar
-bitcoin = 1.0.bitcoins # 10.0 / $dolar_bitcoin
-
-
-puts dolar.to_s, bolivar.convertir_a_dolares.to_s
