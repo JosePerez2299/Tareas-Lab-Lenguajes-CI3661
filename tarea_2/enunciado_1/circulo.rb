@@ -13,49 +13,48 @@ class Circulo
     end
   end
   
-  class Cilindro < Circulo
-    attr_accessor :altura
-  
-    def initialize(radio, altura)
-      super(radio)
-      if altura < 0
-        raise ArgumentError, 'Altura invalida'
-      end
-      @altura = altura
+class Cilindro < Circulo
+  attr_accessor :altura
+
+  def initialize(radio, altura)
+    super(radio)
+    if altura < 0
+      raise ArgumentError, 'Altura invalida'
     end
-  
-    def volumen
-      area * @altura
-    end
+    @altura = altura
   end
-  
-  # Ejemplo de uso:
-  
-  # Crear un círculo
-  circulo = Circulo.new(5)
-  puts "Área del círculo: #{circulo.area}, radio: #{circulo.radio}"
-  
-  # Intentar crear un círculo con radio negativo (debería arrojar un error)
-  begin
-    Circulo.new(-2)
-  rescue ArgumentError => e
-    puts "Error: #{e.message}"
+
+  def volumen
+    area * @altura
   end
+end
   
-  # Crear un cilindro
-  cilindro = Cilindro.new(5, 7)
-  puts "Volumen del cilindro: #{cilindro.volumen}"
-  
-  # Intentar crear un cilindro con radio o altura negativos (debería arrojar un error)
-  begin
-    Cilindro.new(-2, 4)
-  rescue ArgumentError => e
-    puts "Error: #{e.message}"
-  end
-  
-  begin
-    Cilindro.new(3, -7)
-  rescue ArgumentError => e
-    puts "Error: #{e.message}"
-  end
-  
+# Ejemplo de uso:
+
+# Crear un círculo
+circulo = Circulo.new(5)
+puts "Área del círculo: #{circulo.area}, radio: #{circulo.radio}"
+
+# Intentar crear un círculo con radio negativo (debería arrojar un error)
+begin
+  Circulo.new(-2)
+rescue ArgumentError => e
+  puts "Error: #{e.message}"
+end
+
+# Crear un cilindro
+cilindro = Cilindro.new(5, 7)
+puts "Volumen del cilindro: #{cilindro.volumen}"
+
+# Intentar crear un cilindro con radio o altura negativos (debería arrojar un error)
+begin
+  Cilindro.new(-2, 4)
+rescue ArgumentError => e
+  puts "Error: #{e.message}"
+end
+
+begin
+  Cilindro.new(3, -7)
+rescue ArgumentError => e
+  puts "Error: #{e.message}"
+end
